@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+import App from "./App";
 
 const style = document.createElement("style");
 style.innerHTML = `
@@ -11,7 +11,9 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-createRoot(document.getElementById("root")).render(
+createRoot(
+  document.getElementById("root")
+).render(
   <StrictMode>
     <App />
   </StrictMode>
