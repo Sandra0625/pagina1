@@ -9,7 +9,7 @@ export default function Footer() {
           <div style={styles.brand}>
             <div style={styles.logo}>
               <div style={styles.logoIcon}>U</div>
-              <span style={styles.logoText}>UTAMED</span>
+              <span style={styles.logoText}>Big Ban University</span>
             </div>
             <p style={styles.tagline}>{SITE.description}</p>
             <div style={styles.contact}>
@@ -36,7 +36,7 @@ export default function Footer() {
 
         <div style={styles.bottom}>
           <p style={styles.copy}>
-            © {new Date().getFullYear()} UTAMED — Universidad a Distancia. Todos los derechos reservados.
+            © {new Date().getFullYear()} Big Ban University — Universidad a Distancia. Todos los derechos reservados.
           </p>
           <div style={styles.socialLinks}>
             <a href="#" style={styles.socialBtn}>in</a>

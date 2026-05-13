@@ -19,80 +19,62 @@ export const MEGA_MENU = {
       default: {
         columns: [
           {
-            title:
-              "Facultad de Empresa Digital, Tecnología y Derecho",
+            title: "Facultad de Empresa Digital, Tecnología y Derecho",
             items: [
               { label: "Derecho", href: "/programa/derecho" },
               {
-                label:
-                  "Diseño Gráfico, Multimedia y Creación Digital",
+                label: "Diseño Gráfico, Multimedia y Creación Digital",
                 href: "/programa/diseno-grafico",
               },
               {
-                label:
-                  "Economía Digital e Inteligencia de Negocios",
-                href:
-                  "/programa/economia-digital-inteligencia-negocios",
+                label: "Economía Digital e Inteligencia de Negocios",
+                href: "/programa/economia-digital-inteligencia-negocios",
               },
               {
                 label: "Finanzas y Contabilidad",
-                href:
-                  "/programa/finanzas-contabilidad",
+                href: "/programa/finanzas-contabilidad",
               },
               {
                 label: "Ingeniería Informática",
-                href:
-                  "/programa/ingenieria-informatica",
+                href: "/programa/ingenieria-informatica",
               },
               {
-                label:
-                  "Ingeniería de Organización Industrial",
-                href:
-                  "/programa/ingenieria-organizacion-industrial",
+                label: "Ingeniería de Organización Industrial",
+                href: "/programa/ingenieria-organizacion-industrial",
               },
               {
                 label: "Marketing Digital",
-                href:
-                  "/programa/marketing-digital",
+                href: "/programa/marketing-digital",
               },
             ],
           },
           {
-            title:
-              "Facultad de Humanidades y Ciencias Sociales",
+            title: "Facultad de Humanidades y Ciencias Sociales",
             items: [
               {
-                label:
-                  "Comunicación Digital y Periodismo",
-                href:
-                  "/programa/comunicacion-digital-periodismo",
+                label: "Comunicación Digital y Periodismo",
+                href: "/programa/comunicacion-digital-periodismo",
               },
               {
                 label: "Educación Infantil",
-                href:
-                  "/programa/educacion-infantil",
+                href: "/programa/educacion-infantil",
               },
               {
                 label: "Educación Primaria",
-                href:
-                  "/programa/educacion-primaria",
+                href: "/programa/educacion-primaria",
               },
             ],
           },
           {
-            title:
-              "Facultad de Ciencias de la Salud",
+            title: "Facultad de Ciencias de la Salud",
             items: [
               {
-                label:
-                  "Nutrición Humana y Dietética",
-                href:
-                  "/programa/nutricion-humana-dietetica",
+                label: "Nutrición Humana y Dietética",
+                href: "/programa/nutricion-humana-dietetica",
               },
               {
                 label: "Psicología",
-                href:
-                  "/programa/psicologia",
+                href: "/programa/psicologia",
               },
             ],
           },
@@ -106,22 +88,16 @@ export const MEGA_MENU = {
       title: "¡Novedad!",
       links: [
         {
-          label:
-            "Máster Universitario en Abogacía y Procura",
-          href:
-            "/programa/abogacia-procura",
+          label: "Máster Universitario en Abogacía y Procura",
+          href: "/programa/abogacia-procura",
         },
         {
-          label:
-            "Máster en Formación del Profesorado",
-          href:
-            "/programa/formacion-profesorado",
+          label: "Máster en Formación del Profesorado",
+          href: "/programa/formacion-profesorado",
         },
         {
-          label:
-            "Máster en Psicología General Sanitaria",
-          href:
-            "/programa/psicologia-general-sanitaria",
+          label: "Máster en Psicología General Sanitaria",
+          href: "/programa/psicologia-general-sanitaria",
         },
       ],
     },
@@ -136,38 +112,29 @@ export const MEGA_MENU = {
       "Másteres Oficiales Habilitantes": {
         columns: [
           {
-            title:
-              "Facultad de Empresa Digital",
+            title: "Facultad de Empresa Digital",
             items: [
               {
-                label:
-                  "Máster Universitario en Abogacía y Procura",
-                href:
-                  "/programa/abogacia-procura",
+                label: "Máster Universitario en Abogacía y Procura",
+                href: "/programa/abogacia-procura",
               },
             ],
           },
           {
-            title:
-              "Facultad de Humanidades",
+            title: "Facultad de Humanidades",
             items: [
               {
-                label:
-                  "Máster Universitario en Formación del Profesorado",
-                href:
-                  "/programa/formacion-profesorado",
+                label: "Máster Universitario en Formación del Profesorado",
+                href: "/programa/formacion-profesorado",
               },
             ],
           },
           {
-            title:
-              "Facultad de Ciencias de la Salud",
+            title: "Facultad de Ciencias de la Salud",
             items: [
               {
-                label:
-                  "Máster Universitario en Psicología General Sanitaria",
-                href:
-                  "/programa/psicologia-general-sanitaria",
+                label: "Máster Universitario en Psicología General Sanitaria",
+                href: "/programa/psicologia-general-sanitaria",
               },
             ],
           },
@@ -177,26 +144,19 @@ export const MEGA_MENU = {
       "Másteres Oficiales": {
         columns: [
           {
-            title:
-              "Empresa y Tecnología",
+            title: "Empresa y Tecnología",
             items: [
               {
-                label:
-                  "Inteligencia Artificial",
-                href:
-                  "/programa/inteligencia-artificial",
+                label: "Inteligencia Artificial",
+                href: "/programa/inteligencia-artificial",
               },
               {
-                label:
-                  "Transformación Digital",
-                href:
-                  "/programa/transformacion-digital",
+                label: "Transformación Digital",
+                href: "/programa/transformacion-digital",
               },
               {
-                label:
-                  "Business Analytics",
-                href:
-                  "/programa/business-analytics",
+                label: "Business Analytics",
+                href: "/programa/business-analytics",
               },
             ],
           },
@@ -206,38 +166,29 @@ export const MEGA_MENU = {
       "Másteres de Formación Permanente": {
         columns: [
           {
-            title:
-              "Comunicación",
+            title: "Comunicación",
             items: [
               {
-                label:
-                  "Comunicación y Oratoria",
-                href:
-                  "/programa/comunicacion-oratoria",
+                label: "Comunicación y Oratoria",
+                href: "/programa/comunicacion-oratoria",
               },
             ],
           },
           {
-            title:
-              "Empresa",
+            title: "Empresa",
             items: [
               {
-                label:
-                  "Liderazgo",
-                href:
-                  "/programa/liderazgo",
+                label: "Liderazgo",
+                href: "/programa/liderazgo",
               },
             ],
           },
           {
-            title:
-              "Tecnología",
+            title: "Tecnología",
             items: [
               {
-                label:
-                  "Ciberseguridad",
-                href:
-                  "/programa/ciberseguridad",
+                label: "Ciberseguridad",
+                href: "/programa/ciberseguridad",
               },
             ],
           },
@@ -259,10 +210,8 @@ export const MEGA_MENU = {
           href: "/programa/daw",
         },
         {
-          label:
-            "Marketing y Publicidad",
-          href:
-            "/programa/marketing-publicidad",
+          label: "Marketing y Publicidad",
+          href: "/programa/marketing-publicidad",
         },
       ],
     },
@@ -271,50 +220,37 @@ export const MEGA_MENU = {
       default: {
         columns: [
           {
-            title:
-              "Tecnología",
+            title: "Tecnología",
             items: [
               {
-                label:
-                  "Desarrollo de Aplicaciones Web",
-                href:
-                  "/programa/daw",
+                label: "Desarrollo de Aplicaciones Web",
+                href: "/programa/daw",
               },
               {
-                label:
-                  "Desarrollo de Aplicaciones Multiplataforma",
-                href:
-                  "/programa/dam",
+                label: "Desarrollo de Aplicaciones Multiplataforma",
+                href: "/programa/dam",
               },
             ],
           },
           {
-            title:
-              "Empresa",
+            title: "Empresa",
             items: [
               {
-                label:
-                  "Marketing y Publicidad",
-                href:
-                  "/programa/marketing-publicidad",
+                label: "Marketing y Publicidad",
+                href: "/programa/marketing-publicidad",
               },
               {
-                label:
-                  "Administración y Finanzas",
-                href:
-                  "/programa/administracion-finanzas",
+                label: "Administración y Finanzas",
+                href: "/programa/administracion-finanzas",
               },
             ],
           },
           {
-            title:
-              "Diseño",
+            title: "Diseño",
             items: [
               {
-                label:
-                  "Diseño Multimedia",
-                href:
-                  "/programa/diseno-multimedia",
+                label: "Diseño Multimedia",
+                href: "/programa/diseno-multimedia",
               },
             ],
           },
@@ -329,18 +265,15 @@ export const MEGA_MENU = {
       links: [
         {
           label: "Grados",
-          href:
-            "/programa/grados",
+          href: "/programa/grados",
         },
         {
           label: "Másteres",
-          href:
-            "/programa/masteres",
+          href: "/programa/masteres",
         },
         {
           label: "FP",
-          href:
-            "/programa/fp-a-distancia",
+          href: "/programa/fp-a-distancia",
         },
       ],
     },
@@ -349,26 +282,19 @@ export const MEGA_MENU = {
       default: {
         columns: [
           {
-            title:
-              "Programas",
+            title: "Programas",
             items: [
               {
-                label:
-                  "Grados",
-                href:
-                  "/programa/grados",
+                label: "Grados",
+                href: "/programa/grados",
               },
               {
-                label:
-                  "Másteres",
-                href:
-                  "/programa/masteres",
+                label: "Másteres",
+                href: "/programa/masteres",
               },
               {
-                label:
-                  "Formación Profesional",
-                href:
-                  "/programa/fp-a-distancia",
+                label: "Formación Profesional",
+                href: "/programa/fp-a-distancia",
               },
             ],
           },
@@ -382,10 +308,8 @@ export const MEGA_MENU = {
       title: "Te ayudamos",
       links: [
         {
-          label:
-            "Proceso de admisión",
-          href:
-            "/programa/admision",
+          label: "Proceso de admisión",
+          href: "/programa/admision",
         },
       ],
     },
@@ -394,26 +318,20 @@ export const MEGA_MENU = {
       default: {
         columns: [
           {
-            title:
-              "Admisión",
+            title: "Admisión",
             items: [
               {
-                label:
-                  "Cómo matricularte",
-                href:
-                  "/programa/admision",
+                label: "Cómo matricularte",
+                href: "/programa/admision",
               },
             ],
           },
           {
-            title:
-              "Becas",
+            title: "Becas",
             items: [
               {
-                label:
-                  "Becas UTAMED",
-                href:
-                  "/programa/becas",
+                label: "Becas Big Ban University",
+                href: "/programa/becas",
               },
             ],
           },
@@ -422,15 +340,13 @@ export const MEGA_MENU = {
     },
   },
 
-  utamed: {
+  "Big Ban University": {
     leftCard: {
       title: "Conócenos",
       links: [
         {
-          label:
-            "Quiénes somos",
-          href:
-            "/programa/utamed",
+          label: "Quiénes somos",
+          href: "/programa/Big Ban University",
         },
       ],
     },
@@ -439,14 +355,11 @@ export const MEGA_MENU = {
       default: {
         columns: [
           {
-            title:
-              "Institucional",
+            title: "Institucional",
             items: [
               {
-                label:
-                  "Sobre UTAMED",
-                href:
-                  "/programa/utamed",
+                label: "Sobre Big Ban University",
+                href: "/programa/Big Ban University",
               },
             ],
           },

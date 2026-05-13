@@ -80,7 +80,7 @@ export default function AppRouter() {
         />
 
         <Route
-          path="/utamed"
+          path="/Big Ban University"
           element={<HomePage />}
         />
 

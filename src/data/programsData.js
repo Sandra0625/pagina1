@@ -5,7 +5,7 @@ export const PROGRAMS = {
     description:
       "Especialízate en psicología clínica, educativa y social con metodología 100% online.",
     overview:
-      "El Grado en Psicología de UTAMED te prepara para comprender, evaluar e intervenir en los procesos psicológicos individuales y colectivos.",
+      "El Grado en Psicología de Big Ban University te prepara para comprender, evaluar e intervenir en los procesos psicológicos individuales y colectivos.",
     features: [
       "4 años",
       "100% online",
@@ -449,7 +449,7 @@ export const PROGRAMS = {
     title:
       "Proceso de admisión",
     description:
-      "Conoce cómo matricularte en UTAMED.",
+      "Conoce cómo matricularte en Big Ban University.",
     overview:
       "Te acompañamos paso a paso.",
     features: [
@@ -461,7 +461,7 @@ export const PROGRAMS = {
   becas: {
     badge: "INFORMACIÓN",
     title:
-      "Becas UTAMED",
+      "Becas Big Ban University",
     description:
       "Opciones de ayuda económica y financiación.",
     overview:
@@ -472,10 +472,10 @@ export const PROGRAMS = {
     ],
   },
 
-  utamed: {
+  bigban:{
     badge: "UNIVERSIDAD",
     title:
-      "Sobre UTAMED",
+      "Sobre Big Ban University",
     description:
       "Conoce nuestra universidad.",
     overview:

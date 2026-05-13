@@ -66,7 +66,7 @@ export default function Hero() {
             <span style={{ fontSize: "1.4rem" }}>⭐</span>
             <div>
               <p style={styles.badgeTitle}>+15.000 estudiantes</p>
-              <p style={styles.badgeSub}>confían en UTAMED</p>
+              <p style={styles.badgeSub}>confían en Big Ban University</p>
             </div>
           </div>
         </div>

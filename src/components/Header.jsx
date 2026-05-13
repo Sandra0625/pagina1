@@ -114,7 +114,7 @@ export default function Header() {
               color: "#111827",
             }}
           >
-            UTAMED
+            Big Ban University
           </Link>
 
           <nav
