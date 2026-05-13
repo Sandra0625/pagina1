@@ -5,7 +5,9 @@ import {
   SHADOWS,
 } from "../data/tokens";
 
-import { WHY_BIG_BAN_UNIVERSITY } from "../data/siteData";
+import {
+  WHY_BIG_BAN_UNIVERSITY,
+} from "../data/siteData";
 
 export default function WhyUs() {
   return (
@@ -21,50 +23,81 @@ export default function WhyUs() {
 
             <h2 style={styles.title}>
               Una universidad pensada{" "}
-              <span style={styles.titleAccent}>
+              <span
+                style={
+                  styles.titleAccent
+                }
+              >
                 para ti
               </span>
             </h2>
 
             <p style={styles.subtitle}>
-              Combinamos la flexibilidad del
-              estudio online con la calidad
-              académica de los títulos
-              oficiales. Tu ritmo, tu futuro.
+              Combinamos la
+              flexibilidad del
+              estudio online con la
+              calidad académica de
+              los títulos oficiales.
+              Tu ritmo, tu futuro.
             </p>
 
             <a
-              href="/big-ban-university"
-              style={styles.ctaLink}
+              href="/utamed"
+              style={
+                styles.ctaLink
+              }
             >
-              Conoce Big Ban University →
+              Conoce Big Ban
+              University →
             </a>
           </div>
 
-          <div style={styles.featuresGrid}>
+          <div
+            style={
+              styles.featuresGrid
+            }
+          >
             {WHY_BIG_BAN_UNIVERSITY.map(
-              (item) => (
+              (
+                item
+              ) => (
                 <div
-                  key={item.title}
-                  style={styles.featureCard}
+                  key={
+                    item.title
+                  }
+                  style={
+                    styles.featureCard
+                  }
                 >
                   <div
-                    style={styles.featureIcon}
+                    style={
+                      styles.featureIcon
+                    }
                   >
-                    {item.icon}
+                    {
+                      item.icon
+                    }
                   </div>
 
                   <div>
                     <h3
-                      style={styles.featureTitle}
+                      style={
+                        styles.featureTitle
+                      }
                     >
-                      {item.title}
+                      {
+                        item.title
+                      }
                     </h3>
 
                     <p
-                      style={styles.featureDesc}
+                      style={
+                        styles.featureDesc
+                      }
                     >
-                      {item.desc}
+                      {
+                        item.desc
+                      }
                     </p>
                   </div>
                 </div>
@@ -80,8 +113,10 @@ export default function WhyUs() {
 const styles = {
   section: {
     position: "relative",
-    padding: "96px 0",
-    background: COLORS.white,
+    padding:
+      "clamp(60px,8vw,96px) 0",
+    background:
+      COLORS.white,
     overflow: "hidden",
   },
 
@@ -89,121 +124,162 @@ const styles = {
     position: "absolute",
     inset: 0,
     backgroundImage: `linear-gradient(${COLORS.gray100} 1px, transparent 1px), linear-gradient(90deg, ${COLORS.gray100} 1px, transparent 1px)`,
-    backgroundSize: "40px 40px",
+    backgroundSize:
+      "40px 40px",
     opacity: 0.5,
-    pointerEvents: "none",
+    pointerEvents:
+      "none",
   },
 
   container: {
-    maxWidth: "1280px",
+    maxWidth:
+      "1280px",
     margin: "0 auto",
-    padding: "0 24px",
-    position: "relative",
+    padding:
+      "0 24px",
+    position:
+      "relative",
     zIndex: 1,
   },
 
   inner: {
     display: "grid",
     gridTemplateColumns:
-      "1fr 1.5fr",
-    gap: "80px",
-    alignItems: "center",
+      "repeat(auto-fit,minmax(320px,1fr))",
+    gap: "40px",
+    alignItems:
+      "start",
   },
 
   textCol: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection:
+      "column",
     gap: "20px",
+    minWidth: 0,
   },
 
   badge: {
-    display: "inline-block",
+    display:
+      "inline-block",
     background: `${COLORS.accent}15`,
-    color: COLORS.accent,
-    padding: "6px 16px",
-    borderRadius: RADIUS.full,
-    fontFamily: FONTS.body,
+    color:
+      COLORS.accent,
+    padding:
+      "6px 16px",
+    borderRadius:
+      RADIUS.full,
+    fontFamily:
+      FONTS.body,
     fontWeight: 700,
-    fontSize: "0.8rem",
-    letterSpacing: "0.06em",
-    textTransform: "uppercase",
-    alignSelf: "flex-start",
+    fontSize:
+      "0.8rem",
+    letterSpacing:
+      "0.06em",
+    textTransform:
+      "uppercase",
+    alignSelf:
+      "flex-start",
   },
 
   title: {
-    fontFamily: FONTS.heading,
+    fontFamily:
+      FONTS.heading,
     fontWeight: 800,
     fontSize:
-      "clamp(1.8rem, 3vw, 2.6rem)",
-    color: COLORS.gray800,
+      "clamp(2rem,5vw,2.8rem)",
+    color:
+      COLORS.gray800,
     margin: 0,
     lineHeight: 1.15,
-    letterSpacing: "-0.03em",
   },
 
   titleAccent: {
-    color: COLORS.primary,
+    color:
+      COLORS.primary,
   },
 
   subtitle: {
-    fontFamily: FONTS.body,
-    fontSize: "1.05rem",
-    color: COLORS.gray600,
-    lineHeight: 1.75,
+    fontFamily:
+      FONTS.body,
+    fontSize:
+      "clamp(1rem,2vw,1.1rem)",
+    color:
+      COLORS.gray600,
+    lineHeight: 1.7,
     margin: 0,
   },
 
   ctaLink: {
-    display: "inline-block",
-    background: COLORS.primary,
-    color: COLORS.white,
-    padding: "13px 28px",
-    borderRadius: RADIUS.full,
-    textDecoration: "none",
-    fontFamily: FONTS.body,
+    display:
+      "inline-block",
+    background:
+      COLORS.primary,
+    color:
+      COLORS.white,
+    padding:
+      "14px 28px",
+    borderRadius:
+      RADIUS.full,
+    textDecoration:
+      "none",
     fontWeight: 700,
-    fontSize: "0.95rem",
-    alignSelf: "flex-start",
-    boxShadow: SHADOWS.colored,
+    boxShadow:
+      SHADOWS.colored,
+    alignSelf:
+      "flex-start",
   },
 
   featuresGrid: {
     display: "grid",
     gridTemplateColumns:
-      "1fr 1fr",
+      "repeat(auto-fit,minmax(260px,1fr))",
     gap: "20px",
+    minWidth: 0,
   },
 
   featureCard: {
     display: "flex",
     gap: "16px",
-    alignItems: "flex-start",
-    background: COLORS.offWhite,
-    borderRadius: RADIUS.lg,
+    alignItems:
+      "flex-start",
+    background:
+      COLORS.offWhite,
+    borderRadius:
+      RADIUS.lg,
     padding: "20px",
     border: `1px solid ${COLORS.gray100}`,
+    minWidth: 0,
   },
 
   featureIcon: {
-    fontSize: "1.8rem",
+    fontSize:
+      "1.8rem",
     flexShrink: 0,
-    lineHeight: 1,
-    marginTop: "2px",
   },
 
   featureTitle: {
-    fontFamily: FONTS.heading,
+    fontFamily:
+      FONTS.heading,
     fontWeight: 700,
-    fontSize: "0.95rem",
-    color: COLORS.gray800,
-    margin: "0 0 6px",
+    fontSize:
+      "0.95rem",
+    color:
+      COLORS.gray800,
+    margin:
+      "0 0 6px",
   },
 
   featureDesc: {
-    fontFamily: FONTS.body,
-    fontSize: "0.85rem",
-    color: COLORS.gray600,
+    fontFamily:
+      FONTS.body,
+    fontSize:
+      "0.9rem",
+    color:
+      COLORS.gray600,
     margin: 0,
     lineHeight: 1.6,
+    wordBreak:
+      "break-word",
   },
 };
