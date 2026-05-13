@@ -27,7 +27,9 @@ export default function Header() {
     };
 
     const onResize = () => {
-      setIsMobile(window.innerWidth < 1024);
+      setIsMobile(
+        window.innerWidth < 1024
+      );
     };
 
     onResize();
@@ -92,22 +94,31 @@ export default function Header() {
                 gap: "20px",
               }}
             >
-              {TOP_LINKS.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  style={{
-                    textDecoration:
-                      "none",
-                    color: "#4b5563",
-                  }}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {TOP_LINKS.map(
+                (link) => (
+                  <Link
+                    key={
+                      link.label
+                    }
+                    to={link.href}
+                    style={{
+                      textDecoration:
+                        "none",
+                      color:
+                        "#4b5563",
+                    }}
+                  >
+                    {
+                      link.label
+                    }
+                  </Link>
+                )
+              )}
             </div>
 
-            <span>{SITE.phone}</span>
+            <span>
+              {SITE.phone}
+            </span>
           </div>
         </div>
       )}
@@ -115,7 +126,8 @@ export default function Header() {
       {/* MAIN NAV */}
       <div
         style={{
-          position: "relative",
+          position:
+            "relative",
         }}
       >
         <div
@@ -125,24 +137,40 @@ export default function Header() {
             minHeight: "72px",
             padding: "0 20px",
             display: "flex",
-            alignItems: "center",
+            alignItems:
+              "center",
             justifyContent:
               "space-between",
             gap: "20px",
           }}
         >
+          {/* LOGO */}
           <Link
             to="/"
             style={{
               fontWeight: 800,
-              fontSize: isMobile
-                ? "1.1rem"
-                : "1.5rem",
-              textDecoration: "none",
-              color: "#111827",
+              fontSize:
+                isMobile
+                  ? "0.95rem"
+                  : "1.5rem",
+              lineHeight:
+                "1.1",
+              textDecoration:
+                "none",
+              color:
+                "#111827",
+              maxWidth:
+                isMobile
+                  ? "75%"
+                  : "none",
+              display:
+                "block",
+              wordBreak:
+                "break-word",
+              flexShrink: 1,
             }}
           >
-            Big Ban University
+            {SITE.name}
           </Link>
 
           {/* DESKTOP NAV */}
@@ -150,18 +178,23 @@ export default function Header() {
             <>
               <nav
                 style={{
-                  display: "flex",
+                  display:
+                    "flex",
                   gap: "28px",
                   flex: 1,
                 }}
               >
                 {NAV_ITEMS.map(
-                  (item) => {
+                  (
+                    item
+                  ) => {
                     const key =
                       item.label.toLowerCase();
 
                     const hasMega =
-                      !!MEGA_MENU[key];
+                      !!MEGA_MENU[
+                        key
+                      ];
 
                     return (
                       <div
@@ -192,8 +225,7 @@ export default function Header() {
                               "#111827",
                             textDecoration:
                               "none",
-                            fontWeight:
-                              600,
+                            fontWeight: 600,
                           }}
                         >
                           {
@@ -210,8 +242,10 @@ export default function Header() {
                 style={{
                   background:
                     "#e8431a",
-                  color: "#fff",
-                  border: "none",
+                  color:
+                    "#fff",
+                  border:
+                    "none",
                   padding:
                     "12px 24px",
                   borderRadius:
@@ -221,7 +255,8 @@ export default function Header() {
                     "pointer",
                 }}
               >
-                Solicita información
+                Solicita
+                información
               </button>
             </>
           )}
@@ -237,10 +272,13 @@ export default function Header() {
               style={{
                 background:
                   "transparent",
-                border: "none",
-                fontSize: "1.8rem",
+                border:
+                  "none",
+                fontSize:
+                  "1.8rem",
                 cursor:
                   "pointer",
+                flexShrink: 0,
               }}
             >
               ☰
@@ -257,7 +295,8 @@ export default function Header() {
                   "1px solid #e5e7eb",
                 padding:
                   "20px",
-                display: "flex",
+                display:
+                  "flex",
                 flexDirection:
                   "column",
                 gap: "16px",
@@ -266,7 +305,9 @@ export default function Header() {
               }}
             >
               {NAV_ITEMS.map(
-                (item) => (
+                (
+                  item
+                ) => (
                   <Link
                     key={
                       item.label
@@ -284,8 +325,7 @@ export default function Header() {
                         "none",
                       color:
                         "#111827",
-                      fontWeight:
-                        600,
+                      fontWeight: 600,
                     }}
                   >
                     {
@@ -299,8 +339,10 @@ export default function Header() {
                 style={{
                   background:
                     "#e8431a",
-                  color: "#fff",
-                  border: "none",
+                  color:
+                    "#fff",
+                  border:
+                    "none",
                   padding:
                     "12px",
                   borderRadius:
@@ -310,7 +352,8 @@ export default function Header() {
                     "10px",
                 }}
               >
-                Solicita información
+                Solicita
+                información
               </button>
             </div>
           )}
@@ -334,8 +377,10 @@ export default function Header() {
                   "absolute",
                 top: "72px",
                 left: 0,
-                width: "100%",
-                zIndex: 999999,
+                width:
+                  "100%",
+                zIndex:
+                  999999,
               }}
             >
               <MegaMenu
