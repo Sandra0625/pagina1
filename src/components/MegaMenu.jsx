@@ -1,85 +1,66 @@
 import { Link } from "react-router-dom";
 
-export default function MegaMenu({ data }) {
+export default function MegaMenu({
+  data,
+}) {
   if (!data) return null;
 
-  // Buscar la primera sección disponible
   const firstSection =
     data.sections &&
-    Object.values(data.sections)[0];
+    Object.values(
+      data.sections
+    )[0];
 
   const columns =
     firstSection?.columns || [];
 
   return (
-    <div
-      style={{
-        background: "#ffffff",
-        borderTop: "1px solid #e5e7eb",
-        boxShadow:
-          "0 18px 45px rgba(0,0,0,0.12)",
-        width: "100%",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "36px 24px",
-          display: "grid",
-          gridTemplateColumns:
-            "280px 1fr",
-          gap: "40px",
-        }}
-      >
+    <div style={styles.wrapper}>
+      <div style={styles.container}>
         {/* LEFT CARD */}
-        <div
-          style={{
-            background: "#5bc9b8",
-            padding: "28px",
-            borderRadius: "14px",
-          }}
-        >
-          <h2
-            style={{
-              marginTop: 0,
-              color: "#111827",
-            }}
-          >
-            {data.leftCard?.title}
+        <div style={styles.leftCard}>
+          <h2 style={styles.leftTitle}>
+            {
+              data.leftCard
+                ?.title
+            }
           </h2>
 
           <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "14px",
-            }}
+            style={
+              styles.leftLinks
+            }
           >
             {data.leftCard?.links?.map(
-              (item, i) => {
+              (
+                item,
+                i
+              ) => {
                 const label =
-                  typeof item === "string"
+                  typeof item ===
+                  "string"
                     ? item
                     : item.label;
 
                 const href =
-                  typeof item === "string"
+                  typeof item ===
+                  "string"
                     ? "/"
                     : item.href;
 
                 return (
                   <Link
                     key={i}
-                    to={href}
-                    style={{
-                      textDecoration:
-                        "none",
-                      color: "#111827",
-                      fontWeight: 700,
-                    }}
+                    to={
+                      href
+                    }
+                    style={
+                      styles.leftLink
+                    }
                   >
-                    {label}
+                    {
+                      label
+                    }
                   </Link>
                 );
               }
@@ -88,32 +69,29 @@ export default function MegaMenu({ data }) {
         </div>
 
         {/* COLUMNS */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(3,1fr)",
-            gap: "30px",
-          }}
-        >
+        <div style={styles.columns}>
           {columns.map(
-            (col, i) => (
-              <div key={i}>
+            (
+              col,
+              i
+            ) => (
+              <div
+                key={i}
+              >
                 <h4
-                  style={{
-                    color: "#111827",
-                  }}
+                  style={
+                    styles.columnTitle
+                  }
                 >
-                  {col.title}
+                  {
+                    col.title
+                  }
                 </h4>
 
                 <div
-                  style={{
-                    display: "flex",
-                    flexDirection:
-                      "column",
-                    gap: "10px",
-                  }}
+                  style={
+                    styles.items
+                  }
                 >
                   {col.items?.map(
                     (
@@ -134,16 +112,19 @@ export default function MegaMenu({ data }) {
 
                       return (
                         <Link
-                          key={j}
-                          to={href}
-                          style={{
-                            textDecoration:
-                              "none",
-                            color:
-                              "#4b5563",
-                          }}
+                          key={
+                            j
+                          }
+                          to={
+                            href
+                          }
+                          style={
+                            styles.itemLink
+                          }
                         >
-                          {label}
+                          {
+                            label
+                          }
                         </Link>
                       );
                     }
@@ -157,3 +138,101 @@ export default function MegaMenu({ data }) {
     </div>
   );
 }
+
+const styles = {
+  wrapper: {
+    background:
+      "#ffffff",
+    borderTop:
+      "1px solid #e5e7eb",
+    boxShadow:
+      "0 18px 45px rgba(0,0,0,0.12)",
+    width: "100%",
+    maxHeight:
+      "calc(100vh - 72px)",
+    overflowY:
+      "auto",
+  },
+
+  container: {
+    maxWidth:
+      "1280px",
+    margin: "0 auto",
+    padding:
+      "clamp(20px,4vw,36px)",
+    display: "grid",
+    gridTemplateColumns:
+      "repeat(auto-fit,minmax(260px,1fr))",
+    gap: "32px",
+  },
+
+  leftCard: {
+    background:
+      "#5bc9b8",
+    padding:
+      "clamp(20px,3vw,28px)",
+    borderRadius:
+      "14px",
+    minWidth: 0,
+  },
+
+  leftTitle: {
+    marginTop: 0,
+    color:
+      "#111827",
+    fontSize:
+      "clamp(1.1rem,2vw,1.4rem)",
+  },
+
+  leftLinks: {
+    display: "flex",
+    flexDirection:
+      "column",
+    gap: "14px",
+  },
+
+  leftLink: {
+    textDecoration:
+      "none",
+    color:
+      "#111827",
+    fontWeight: 700,
+    lineHeight: 1.4,
+  },
+
+  columns: {
+    display: "grid",
+    gridTemplateColumns:
+      "repeat(auto-fit,minmax(220px,1fr))",
+    gap: "28px",
+    minWidth: 0,
+  },
+
+  columnTitle: {
+    color:
+      "#111827",
+    fontSize:
+      "0.95rem",
+    marginTop: 0,
+    marginBottom:
+      "14px",
+    lineHeight: 1.4,
+  },
+
+  items: {
+    display: "flex",
+    flexDirection:
+      "column",
+    gap: "10px",
+  },
+
+  itemLink: {
+    textDecoration:
+      "none",
+    color:
+      "#4b5563",
+    lineHeight: 1.5,
+    fontSize:
+      "0.95rem",
+  },
+};

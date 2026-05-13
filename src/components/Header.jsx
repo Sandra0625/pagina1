@@ -15,21 +15,44 @@ export default function Header() {
   const [activeMegaMenu, setActiveMegaMenu] =
     useState(null);
 
+  const [mobileMenuOpen, setMobileMenuOpen] =
+    useState(false);
+
+  const [isMobile, setIsMobile] =
+    useState(false);
+
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
+    const onResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    onResize();
 
     window.addEventListener(
       "scroll",
       onScroll
     );
 
-    return () =>
+    window.addEventListener(
+      "resize",
+      onResize
+    );
+
+    return () => {
       window.removeEventListener(
         "scroll",
         onScroll
       );
+
+      window.removeEventListener(
+        "resize",
+        onResize
+      );
+    };
   }, []);
 
   return (
@@ -45,48 +68,49 @@ export default function Header() {
       }}
     >
       {/* TOP BAR */}
-      <div
-        style={{
-          borderBottom:
-            "1px solid #e5e7eb",
-          fontSize: "0.85rem",
-        }}
-      >
+      {!isMobile && (
         <div
           style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            padding: "8px 24px",
-            display: "flex",
-            justifyContent:
-              "space-between",
+            borderBottom:
+              "1px solid #e5e7eb",
+            fontSize: "0.85rem",
           }}
         >
           <div
             style={{
+              maxWidth: "1280px",
+              margin: "0 auto",
+              padding: "8px 24px",
               display: "flex",
-              gap: "20px",
+              justifyContent:
+                "space-between",
             }}
           >
-            {TOP_LINKS.map((link) => (
-              <Link
-                key={link.label}
-                to={link.href}
-                style={{
-                  textDecoration:
-                    "none",
-                  color:
-                    "#4b5563",
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+            <div
+              style={{
+                display: "flex",
+                gap: "20px",
+              }}
+            >
+              {TOP_LINKS.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  style={{
+                    textDecoration:
+                      "none",
+                    color: "#4b5563",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
 
-          <span>{SITE.phone}</span>
+            <span>{SITE.phone}</span>
+          </div>
         </div>
-      </div>
+      )}
 
       {/* MAIN NAV */}
       <div
@@ -98,18 +122,22 @@ export default function Header() {
           style={{
             maxWidth: "1280px",
             margin: "0 auto",
-            height: "72px",
-            padding: "0 24px",
+            minHeight: "72px",
+            padding: "0 20px",
             display: "flex",
             alignItems: "center",
-            gap: "24px",
+            justifyContent:
+              "space-between",
+            gap: "20px",
           }}
         >
           <Link
             to="/"
             style={{
               fontWeight: 800,
-              fontSize: "1.5rem",
+              fontSize: isMobile
+                ? "1.1rem"
+                : "1.5rem",
               textDecoration: "none",
               color: "#111827",
             }}
@@ -117,113 +145,208 @@ export default function Header() {
             Big Ban University
           </Link>
 
-          <nav
-            style={{
-              display: "flex",
-              gap: "28px",
-              flex: 1,
-            }}
-          >
-            {NAV_ITEMS.map(
-              (item) => {
-                const key =
-                  item.label.toLowerCase();
+          {/* DESKTOP NAV */}
+          {!isMobile && (
+            <>
+              <nav
+                style={{
+                  display: "flex",
+                  gap: "28px",
+                  flex: 1,
+                }}
+              >
+                {NAV_ITEMS.map(
+                  (item) => {
+                    const key =
+                      item.label.toLowerCase();
 
-                const hasMega =
-                  !!MEGA_MENU[
-                    key
-                  ];
+                    const hasMega =
+                      !!MEGA_MENU[key];
 
-                return (
-                  <div
+                    return (
+                      <div
+                        key={
+                          item.label
+                        }
+                        onMouseEnter={() =>
+                          hasMega &&
+                          setActiveMegaMenu(
+                            key
+                          )
+                        }
+                        style={{
+                          height:
+                            "72px",
+                          display:
+                            "flex",
+                          alignItems:
+                            "center",
+                        }}
+                      >
+                        <Link
+                          to={
+                            item.href
+                          }
+                          style={{
+                            color:
+                              "#111827",
+                            textDecoration:
+                              "none",
+                            fontWeight:
+                              600,
+                          }}
+                        >
+                          {
+                            item.label
+                          }
+                        </Link>
+                      </div>
+                    );
+                  }
+                )}
+              </nav>
+
+              <button
+                style={{
+                  background:
+                    "#e8431a",
+                  color: "#fff",
+                  border: "none",
+                  padding:
+                    "12px 24px",
+                  borderRadius:
+                    "999px",
+                  fontWeight: 700,
+                  cursor:
+                    "pointer",
+                }}
+              >
+                Solicita información
+              </button>
+            </>
+          )}
+
+          {/* MOBILE MENU BUTTON */}
+          {isMobile && (
+            <button
+              onClick={() =>
+                setMobileMenuOpen(
+                  !mobileMenuOpen
+                )
+              }
+              style={{
+                background:
+                  "transparent",
+                border: "none",
+                fontSize: "1.8rem",
+                cursor:
+                  "pointer",
+              }}
+            >
+              ☰
+            </button>
+          )}
+        </div>
+
+        {/* MOBILE MENU */}
+        {isMobile &&
+          mobileMenuOpen && (
+            <div
+              style={{
+                borderTop:
+                  "1px solid #e5e7eb",
+                padding:
+                  "20px",
+                display: "flex",
+                flexDirection:
+                  "column",
+                gap: "16px",
+                background:
+                  "#ffffff",
+              }}
+            >
+              {NAV_ITEMS.map(
+                (item) => (
+                  <Link
                     key={
                       item.label
                     }
-                    onMouseEnter={() =>
-                      hasMega &&
-                      setActiveMegaMenu(
-                        key
+                    to={
+                      item.href
+                    }
+                    onClick={() =>
+                      setMobileMenuOpen(
+                        false
                       )
                     }
                     style={{
-                      height:
-                        "72px",
-                      display:
-                        "flex",
-                      alignItems:
-                        "center",
+                      textDecoration:
+                        "none",
+                      color:
+                        "#111827",
+                      fontWeight:
+                        600,
                     }}
                   >
-                    <Link
-                      to={
-                        item.href
-                      }
-                      style={{
-                        color:
-                          "#111827",
-                        textDecoration:
-                          "none",
-                        fontWeight: 600,
-                      }}
-                    >
-                      {
-                        item.label
-                      }
-                    </Link>
-                  </div>
-                );
-              }
-            )}
-          </nav>
+                    {
+                      item.label
+                    }
+                  </Link>
+                )
+              )}
 
-          <button
-            style={{
-              background:
-                "#e8431a",
-              color: "#fff",
-              border: "none",
-              padding:
-                "12px 24px",
-              borderRadius:
-                "999px",
-              fontWeight: 700,
-            }}
-          >
-            Solicita información
-          </button>
-        </div>
+              <button
+                style={{
+                  background:
+                    "#e8431a",
+                  color: "#fff",
+                  border: "none",
+                  padding:
+                    "12px",
+                  borderRadius:
+                    "999px",
+                  fontWeight: 700,
+                  marginTop:
+                    "10px",
+                }}
+              >
+                Solicita información
+              </button>
+            </div>
+          )}
 
-        {/* MEGA MENU FLOTANTE */}
-        {activeMegaMenu && (
-          <div
-            onMouseEnter={() =>
-              setActiveMegaMenu(
-                activeMegaMenu
-              )
-            }
-            onMouseLeave={() =>
-              setActiveMegaMenu(
-                null
-              )
-            }
-            style={{
-              position:
-                "absolute",
-              top: "72px",
-              left: 0,
-              width: "100%",
-              zIndex: 999999,
-            }}
-          >
-            <MegaMenu
-              data={
-                MEGA_MENU[
+        {/* DESKTOP MEGA MENU */}
+        {!isMobile &&
+          activeMegaMenu && (
+            <div
+              onMouseEnter={() =>
+                setActiveMegaMenu(
                   activeMegaMenu
-                ]
+                )
               }
-            />
-          </div>
-        )}
+              onMouseLeave={() =>
+                setActiveMegaMenu(
+                  null
+                )
+              }
+              style={{
+                position:
+                  "absolute",
+                top: "72px",
+                left: 0,
+                width: "100%",
+                zIndex: 999999,
+              }}
+            >
+              <MegaMenu
+                data={
+                  MEGA_MENU[
+                    activeMegaMenu
+                  ]
+                }
+              />
+            </div>
+          )}
       </div>
     </header>
   );

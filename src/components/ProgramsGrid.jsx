@@ -1,40 +1,63 @@
 import { useState } from "react";
 import { FEATURED_PROGRAMS } from "../data/siteData";
+import {
+  COLORS,
+  FONTS,
+  RADIUS,
+  SHADOWS,
+} from "../data/tokens";
 
-function ProgramCard(props) {
-  const program = props.program;
-  const [hovered, setHovered] = useState(false);
+function ProgramCard({ program }) {
+  const [hovered, setHovered] =
+    useState(false);
+
   return (
-    <a href={program.href}
+    <a
+      href={program.href}
+      onMouseEnter={() =>
+        setHovered(true)
+      }
+      onMouseLeave={() =>
+        setHovered(false)
+      }
       style={{
-        background: "#ffffff",
-        borderRadius: "32px",
-        padding: "28px",
-        textDecoration: "none",
-        color: "inherit",
-        display: "flex",
-        flexDirection: "column",
-        gap: "12px",
-        border: "1px solid #e2e8f0",
-        boxShadow: hovered ? "0 8px 32px rgba(0,0,0,0.13)" : "0 1px 3px rgba(0,0,0,0.08)",
-        transform: hovered ? "translateY(-4px)" : "none",
-        transition: "transform 0.2s ease, box-shadow 0.2s ease",
+        ...styles.card,
+        boxShadow: hovered
+          ? SHADOWS.xl
+          : SHADOWS.sm,
+        transform: hovered
+          ? "translateY(-4px)"
+          : "none",
       }}
-      onMouseEnter={function() { setHovered(true); }}
-      onMouseLeave={function() { setHovered(false); }}
     >
-      <span style={{ fontSize: "1.6rem" }}>{program.icon}</span>
-      <span style={{ fontWeight: 700, fontSize: "0.72rem", color: program.color }}>
+      <span style={styles.icon}>
+        {program.icon}
+      </span>
+
+      <span
+        style={{
+          ...styles.category,
+          color: program.color,
+        }}
+      >
         {program.category}
       </span>
-      <h3 style={{ fontWeight: 700, fontSize: "1.15rem", color: "#1e293b", margin: 0 }}>
+
+      <h3 style={styles.title}>
         {program.title}
       </h3>
-      <p style={{ fontSize: "0.9rem", color: "#475569", margin: 0, lineHeight: 1.6, flex: 1 }}>
+
+      <p style={styles.description}>
         {program.description}
       </p>
-      <span style={{ fontWeight: 700, fontSize: "0.88rem", color: program.color }}>
-        Ver programa
+
+      <span
+        style={{
+          ...styles.link,
+          color: program.color,
+        }}
+      >
+        Ver programa →
       </span>
     </a>
   );
@@ -42,22 +65,158 @@ function ProgramCard(props) {
 
 export default function ProgramsGrid() {
   return (
-    <section style={{ padding: "96px 0", background: "#f8f9fc" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-        <h2 style={{ textAlign: "center", fontWeight: 800, fontSize: "2rem", color: "#1e293b", marginBottom: "48px" }}>
-          Titulaciones mas demandadas
+    <section style={styles.section}>
+      <div style={styles.container}>
+        <h2 style={styles.heading}>
+          Titulaciones más demandadas
         </h2>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "24px", marginBottom: "48px" }}>
-          {FEATURED_PROGRAMS.map(function(program) {
-            return <ProgramCard key={program.id} program={program} />;
-          })}
+
+        <div style={styles.grid}>
+          {FEATURED_PROGRAMS.map(
+            (program) => (
+              <ProgramCard
+                key={program.id}
+                program={program}
+              />
+            )
+          )}
         </div>
-        <div style={{ textAlign: "center" }}>
-          <a href="/oferta-academica" style={{ display: "inline-block", background: "#0a3d8f", color: "#ffffff", padding: "14px 32px", borderRadius: "9999px", textDecoration: "none", fontWeight: 700 }}>
-            Ver toda la oferta academica
+
+        <div style={styles.ctaWrap}>
+          <a
+            href="/oferta-academica"
+            style={styles.cta}
+          >
+            Ver toda la oferta
+            académica
           </a>
         </div>
       </div>
     </section>
   );
 }
+
+const styles = {
+  section: {
+    padding: "72px 0",
+    background:
+      COLORS.offWhite,
+  },
+
+  container: {
+    maxWidth: "1280px",
+    margin: "0 auto",
+    padding: "0 20px",
+  },
+
+  heading: {
+    textAlign: "center",
+    fontFamily:
+      FONTS.heading,
+    fontWeight: 800,
+    fontSize:
+      "clamp(1.7rem, 4vw, 2.3rem)",
+    color:
+      COLORS.gray800,
+    margin:
+      "0 0 48px",
+    letterSpacing:
+      "-0.03em",
+  },
+
+  grid: {
+    display: "grid",
+    gridTemplateColumns:
+      "repeat(auto-fit,minmax(280px,1fr))",
+    gap: "24px",
+    marginBottom: "40px",
+  },
+
+  card: {
+    background:
+      COLORS.white,
+    borderRadius:
+      RADIUS.xl,
+    padding: "26px",
+    textDecoration:
+      "none",
+    color: "inherit",
+    display: "flex",
+    flexDirection:
+      "column",
+    gap: "12px",
+    border: `1px solid ${COLORS.gray100}`,
+    transition:
+      "all 0.25s ease",
+    minHeight: "280px",
+  },
+
+  icon: {
+    fontSize: "1.8rem",
+    lineHeight: 1,
+  },
+
+  category: {
+    fontWeight: 700,
+    fontSize: "0.75rem",
+    textTransform:
+      "uppercase",
+    letterSpacing:
+      "0.05em",
+    fontFamily:
+      FONTS.body,
+  },
+
+  title: {
+    fontFamily:
+      FONTS.heading,
+    fontWeight: 700,
+    fontSize: "1.15rem",
+    color:
+      COLORS.gray800,
+    margin: 0,
+    lineHeight: 1.3,
+  },
+
+  description: {
+    fontFamily:
+      FONTS.body,
+    fontSize: "0.92rem",
+    color:
+      COLORS.gray600,
+    margin: 0,
+    lineHeight: 1.6,
+    flex: 1,
+  },
+
+  link: {
+    fontWeight: 700,
+    fontSize: "0.9rem",
+    fontFamily:
+      FONTS.body,
+  },
+
+  ctaWrap: {
+    textAlign: "center",
+  },
+
+  cta: {
+    display:
+      "inline-block",
+    background:
+      COLORS.primary,
+    color:
+      COLORS.white,
+    padding:
+      "14px 28px",
+    borderRadius:
+      RADIUS.full,
+    textDecoration:
+      "none",
+    fontWeight: 700,
+    fontFamily:
+      FONTS.body,
+    boxShadow:
+      SHADOWS.colored,
+  },
+};
