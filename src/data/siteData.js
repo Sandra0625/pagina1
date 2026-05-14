@@ -26,6 +26,7 @@ export const NAV_ITEMS = [
   { label: "Grados", href: "/grados" },
   { label: "Másteres", href: "/masteres" },
   { label: "Formación Profesional", href: "/fp-a-distancia" },
+  { label: "Tienda", href: "/tienda" },
   { label: "Oferta académica", href: "/oferta-academica" },
   { label: "Precios y Becas", href: "/precios-becas" },
   { label: "Big Ban University", href: "/big-ban-university" },
@@ -58,7 +59,7 @@ export const FEATURED_PROGRAMS = [
     category: "Grado Oficial",
     title: "Psicología",
     description:
-      "El grado más demandado. Formación científica y clínica con salidas laborales inmediatas.",
+      "Formación científica y clínica para evaluar e intervenir en contextos sanitarios, educativos y sociales. Prácticas supervisadas y proyecto final aplicados a casos reales.",
     href: "/grados/psicologia-online",
     icon: "🧠",
     color: "#6366f1",
@@ -71,7 +72,7 @@ export const FEATURED_PROGRAMS = [
     category: "Grado Oficial",
     title: "Nutrición Humana y Dietética",
     description:
-      "Alta demanda laboral. Especialización en salud alimentaria con proyección internacional.",
+      "Formación en evaluación nutricional, dietoterapia y promoción de salud. Incluye prácticas y herramientas para trabajar en clínica y deporte.",
     href: "/grados/nutricion-dietetica-online",
     icon: "🥗",
     color: "#22c55e",
@@ -84,7 +85,7 @@ export const FEATURED_PROGRAMS = [
     category: "Grado Oficial",
     title: "Ingeniería Informática",
     description:
-      "El sector tech no para de crecer. Domina el desarrollo de software y los sistemas del futuro.",
+      "Aprende programación, arquitectura y sistemas inteligentes con proyectos prácticos y laboratorios. Preparación para roles en desarrollo, datos y cloud.",
     href: "/grados/ingenieria-informatica-online",
     icon: "💻",
     color: "#0ea5e9",

@@ -120,6 +120,17 @@ export default function ProgramTemplate({
           >
             {data.overview}
           </p>
+
+          {data.outcomes && (
+            <div style={{ marginTop: 24, maxWidth: "850px" }}>
+              <h3 style={{ color: "#0f1f3d", marginBottom: 12 }}>Resultados de aprendizaje</h3>
+              <ul style={{ color: "#4b5563", lineHeight: 1.8 }}>
+                {data.outcomes.map((o, i) => (
+                  <li key={i}>{o}</li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </section>
 
@@ -197,6 +208,19 @@ export default function ProgramTemplate({
           </div>
         </div>
       </section>
+
+      {data.modules && (
+        <section style={{ padding: "40px 20px", background: "#ffffff" }}>
+          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+            <h2 style={{ fontSize: "1.4rem", color: "#0f1f3d", marginBottom: 16 }}>Asignaturas / Módulos destacados</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 12 }}>
+              {data.modules.map((m, idx) => (
+                <div key={idx} style={{ background: "#f8fafc", padding: 14, borderRadius: 10, color: "#374151" }}>{m}</div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA FINAL */}
       <section

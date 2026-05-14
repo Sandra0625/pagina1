@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+import logo from "../assets/logo.svg";
+
 import {
   SITE,
   TOP_LINKS,
   NAV_ITEMS,
 } from "../data/siteData";
+
 import { MEGA_MENU } from "../data/headerMegaMenu";
 import MegaMenu from "./MegaMenu";
 
@@ -56,6 +60,53 @@ export default function Header() {
       );
     };
   }, []);
+
+  // Estado de usuario y carrito desde localStorage
+  const [user, setUser] = useState(null);
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    const loadUser = () => {
+      try {
+        const u = localStorage.getItem("bigban_user");
+        setUser(u ? JSON.parse(u) : null);
+      } catch (e) {
+        console.error("Error cargando usuario desde localStorage:", e);
+        setUser(null);
+      }
+    };
+
+    function loadCart() {
+      try {
+        const c = localStorage.getItem("bigban_cart");
+        const arr = c ? JSON.parse(c) : [];
+        setCartCount(Array.isArray(arr) ? arr.length : 0);
+      } catch (e) {
+        console.error("Error cargando carrito desde localStorage:", e);
+        setCartCount(0);
+      }
+    }
+
+    loadUser();
+    loadCart();
+
+    const onStorage = (e) => {
+      if (e.key === "bigban_user") loadUser();
+      if (e.key === "bigban_cart") loadCart();
+    };
+
+    window.addEventListener("storage", onStorage);
+
+    return () => window.removeEventListener("storage", onStorage);
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("bigban_token");
+    localStorage.removeItem("bigban_user");
+    setUser(null);
+    // notify other tabs
+    window.dispatchEvent(new Event("storage"));
+  };
 
   return (
     <header
@@ -148,29 +199,40 @@ export default function Header() {
           <Link
             to="/"
             style={{
-              fontWeight: 800,
-              fontSize:
-                isMobile
-                  ? "0.95rem"
-                  : "1.5rem",
-              lineHeight:
-                "1.1",
+              display: "flex",
+              alignItems:
+                "center",
+              gap: "12px",
               textDecoration:
                 "none",
-              color:
-                "#111827",
-              maxWidth:
-                isMobile
-                  ? "75%"
-                  : "none",
-              display:
-                "block",
-              wordBreak:
-                "break-word",
-              flexShrink: 1,
+              flexShrink: 0,
             }}
           >
-            {SITE.name}
+            <img
+              src={logo}
+              alt="Logo"
+              style={{
+                height:
+                  isMobile
+                    ? "42px"
+                    : "52px",
+                width: "auto",
+              }}
+            />
+
+            <span
+              style={{
+                fontWeight: 800,
+                fontSize:
+                  isMobile
+                    ? "1rem"
+                    : "1.35rem",
+                color:
+                  "#111827",
+              }}
+            >
+              {SITE.name}
+            </span>
           </Link>
 
           {/* DESKTOP NAV */}
@@ -182,6 +244,8 @@ export default function Header() {
                     "flex",
                   gap: "28px",
                   flex: 1,
+                  marginLeft:
+                    "30px",
                 }}
               >
                 {NAV_ITEMS.map(
@@ -238,30 +302,49 @@ export default function Header() {
                 )}
               </nav>
 
-              <button
-                style={{
-                  background:
-                    "#e8431a",
-                  color:
-                    "#fff",
-                  border:
-                    "none",
-                  padding:
-                    "12px 24px",
-                  borderRadius:
-                    "999px",
-                  fontWeight: 700,
-                  cursor:
-                    "pointer",
-                }}
-              >
-                Solicita
-                información
-              </button>
+              <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                <Link to="/tienda" style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
+                  🛒 {cartCount}
+                </Link>
+
+                {user ? (
+                  <>
+                    <Link to="/portal" style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
+                      Hola, {user.name}
+                    </Link>
+                    <button onClick={handleLogout} style={{ background: "transparent", border: "1px solid #e5e7eb", padding: "8px 12px", borderRadius: 8 }}>
+                      Cerrar sesión
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <Link to={SITE.loginHref} style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
+                      Acceso
+                    </Link>
+                    <Link to="/registro" style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
+                      Registro
+                    </Link>
+                  </>
+                )}
+
+                <button
+                  style={{
+                    background: "#e8431a",
+                    color: "#fff",
+                    border: "none",
+                    padding: "12px 24px",
+                    borderRadius: "999px",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                  }}
+                >
+                  Solicita información
+                </button>
+              </div>
             </>
           )}
 
-          {/* MOBILE MENU BUTTON */}
+          {/* MOBILE BUTTON */}
           {isMobile && (
             <button
               onClick={() =>
@@ -278,7 +361,6 @@ export default function Header() {
                   "1.8rem",
                 cursor:
                   "pointer",
-                flexShrink: 0,
               }}
             >
               ☰
@@ -334,27 +416,6 @@ export default function Header() {
                   </Link>
                 )
               )}
-
-              <button
-                style={{
-                  background:
-                    "#e8431a",
-                  color:
-                    "#fff",
-                  border:
-                    "none",
-                  padding:
-                    "12px",
-                  borderRadius:
-                    "999px",
-                  fontWeight: 700,
-                  marginTop:
-                    "10px",
-                }}
-              >
-                Solicita
-                información
-              </button>
             </div>
           )}
 

@@ -3,14 +3,27 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Psicología",
     description:
-      "Especialízate en psicología clínica, educativa y social con metodología 100% online.",
+      "Formación integral en psicología clínica, educativa, social y organizacional. Combina teoría, metodología científica y práctica supervisada para desarrollar competencias evaluativas e intervencionistas.",
     overview:
-      "El Grado en Psicología de Big Ban University te prepara para comprender, evaluar e intervenir en los procesos psicológicos individuales y colectivos.",
+      "El Grado en Psicología de Big Ban University ofrece un recorrido académico profundo sobre procesos cognitivos, emocionales y sociales. Aprenderás técnicas de evaluación psicológica, intervención terapéutica, diseño de programas preventivos y trabajo en entornos educativos y sanitarios. El plan incluye prácticas supervisadas, seminarios con profesionales activos y un proyecto final orientado a casos reales.",
     features: [
       "4 años",
       "100% online",
       "Sin nota de corte",
       "Becas disponibles",
+    ],
+    outcomes: [
+      "Realizar evaluaciones psicológicas y elaborar informes clínicos.",
+      "Aplicar técnicas de intervención individual y grupal basadas en la evidencia.",
+      "Diseñar programas preventivos en contextos educativos y comunitarios.",
+      "Integrar conocimientos de investigación en práctica profesional.",
+    ],
+    modules: [
+      "Fundamentos de Psicología y Métodos de Investigación",
+      "Psicología del Desarrollo y Educación",
+      "Evaluación y Diagnóstico Psicológico",
+      "Intervención Clínica y de Salud Mental",
+      "Prácticas Profesionales y Proyecto Final",
     ],
   },
 
@@ -18,14 +31,26 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Nutrición Humana y Dietética",
     description:
-      "Aprende a diseñar planes nutricionales y promover hábitos saludables.",
+      "Formación científica aplicada para diseñar, implementar y evaluar planes nutricionales individuales y colectivos, con enfoque clínico, deportivo y comunitario.",
     overview:
-      "Formación científica y práctica para convertirte en profesional de la nutrición clínica, deportiva y comunitaria.",
+      "Este grado combina bases fisiológicas y bioquímicas con habilidades prácticas en valoración nutricional, asesoramiento dietético y diseño de intervenciones poblacionales. Incluye módulos sobre nutrición clínica, suplementación deportiva, seguridad alimentaria y comunicación para el cambio de conducta, además de prácticas en centros colaboradores y trabajos de campo.",
     features: [
       "4 años",
       "100% online",
       "Prácticas",
       "Título oficial",
+    ],
+    outcomes: [
+      "Realizar valoraciones nutricionales y elaborar planes dietéticos personalizados.",
+      "Interpretar evidencia científica para la toma de decisiones nutricionales.",
+      "Diseñar programas de intervención para colectivos y deporte.",
+    ],
+    modules: [
+      "Bases de la Nutrición y Bioquímica",
+      "Evaluación Nutricional y Dietoterapia",
+      "Nutrición Clínica y Comunitaria",
+      "Nutrición Deportiva y Suplementación",
+      "Prácticas y Trabajo Fin de Grado",
     ],
   },
 
@@ -33,9 +58,9 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Comunicación Digital y Periodismo",
     description:
-      "Domina medios digitales, narrativa periodística y estrategias de comunicación.",
+      "Entrenamiento en redacción, storytelling, reporting digital, producción multimedia y estrategias de difusión en plataformas online.",
     overview:
-      "Prepárate para trabajar en periodismo, contenidos digitales y comunicación corporativa.",
+      "El programa forma a profesionales capaces de investigar, producir y distribuir contenidos en formatos diversos (texto, audio, vídeo y social media). Aprenderás verificación de fuentes, análisis de audiencias, SEO para contenidos, monetización y gestión de crisis comunicativas. Proyecto final con publicación en medios asociados.",
     features: [
       "4 años",
       "Online",
@@ -48,9 +73,9 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Derecho",
     description:
-      "Formación jurídica completa con enfoque digital.",
+      "Programa que cubre los pilares del sistema jurídico: derecho civil, penal, administrativo, laboral y mercantil, con perspectiva práctica y tecnológica.",
     overview:
-      "Aprende derecho civil, penal, laboral y mercantil con una visión moderna del sector legal.",
+      "El Grado en Derecho prepara a los estudiantes para el análisis jurídico riguroso y la resolución práctica de conflictos legales. Incluye práctica procesal, técnicas de negociación, ética profesional y el uso de herramientas digitales para la gestión de expedientes y la investigación jurídica. Módulos orientados a la contratación digital y cumplimiento normativo.",
     features: [
       "4 años",
       "Online",
@@ -63,9 +88,9 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Diseño Gráfico, Multimedia y Creación Digital",
     description:
-      "Diseño visual, branding y creación multimedia.",
+      "Formación para crear soluciones visuales y experiencias digitales: branding, UX/UI, motion graphics y producción multimedia.",
     overview:
-      "Desarrolla proyectos creativos para medios digitales, publicidad y comunicación visual.",
+      "Aprenderás procesos creativos desde el briefing hasta la entrega, aplicando teoría del color, tipografía, diseño de interacción y herramientas profesionales (vector, raster y edición de vídeo). El plan incluye creación de portfolio, proyectos colaborativos con clientes reales y prácticas en agencias o estudios.",
     features: [
       "4 años",
       "Online",
@@ -79,9 +104,9 @@ export const PROGRAMS = {
     title:
       "Grado en Economía Digital e Inteligencia de Negocios",
     description:
-      "Especialízate en economía digital, análisis de datos y estrategia empresarial.",
+      "Combinación de economía, análisis de datos y estrategia digital para la toma de decisiones en empresas modernas.",
     overview:
-      "Aprende transformación digital, business intelligence y toma de decisiones basada en datos.",
+      "Este grado desarrolla habilidades en análisis cuantitativo, visualización de datos, modelos predictivos y estrategia empresarial digital. Incluye herramientas de BI, economía de plataformas, modelos de negocio online y casos prácticos con datos reales que permiten diseñar políticas y decisiones basadas en evidencia.",
     features: [
       "4 años",
       "Online",
@@ -94,9 +119,9 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Finanzas y Contabilidad",
     description:
-      "Domina gestión financiera, auditoría y análisis contable.",
+      "Preparación completa en contabilidad, análisis financiero, auditoría y control de gestión para organizaciones públicas y privadas.",
     overview:
-      "Formación integral en contabilidad, finanzas corporativas y planificación económica.",
+      "El programa combina teoría financiera con herramientas prácticas para la valoración de empresas, análisis de estados financieros, gestión de tesorería y control presupuestario. Incluye formación en normativa contable, auditoría y prácticas en entornos profesionales.",
     features: [
       "4 años",
       "Online",
@@ -109,14 +134,26 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Ingeniería Informática",
     description:
-      "Conviértete en profesional del desarrollo y la innovación tecnológica.",
+      "Formación sólida en programación, arquitectura de software, sistemas distribuidos e inteligencia artificial aplicada.",
     overview:
-      "Aprende programación, arquitectura de software, bases de datos y sistemas inteligentes.",
+      "Este grado abarca desde fundamentos de programación y estructuras de datos hasta diseño de sistemas escalables, seguridad y DevOps. Tendrás laboratorios prácticos, proyectos en equipo y acceso a herramientas profesionales para desarrollar aplicaciones reales, APIs y soluciones basadas en IA.",
     features: [
       "4 años",
       "Online",
       "Laboratorios",
       "Alta empleabilidad",
+    ],
+    outcomes: [
+      "Diseñar y desarrollar software robusto y escalable.",
+      "Implementar soluciones de datos y sistemas distribuidos.",
+      "Aplicar prácticas de seguridad, testing y despliegue continuo.",
+    ],
+    modules: [
+      "Programación y Estructuras de Datos",
+      "Bases de Datos y Sistemas de Información",
+      "Arquitectura de Software y DevOps",
+      "Inteligencia Artificial y Aprendizaje Automático",
+      "Proyectos y Laboratorios Profesionales",
     ],
   },
 
@@ -140,9 +177,9 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Marketing Digital",
     description:
-      "Especialízate en estrategia digital y crecimiento online.",
+      "Estrategias de crecimiento digital, adquisición de usuarios, analítica y optimización de campañas en canales online.",
     overview:
-      "SEO, SEM, analítica, automatización y marketing basado en datos.",
+      "El programa combina creatividad y analítica: aprenderás SEO, publicidad programática, campañas en redes sociales, email marketing, CRO y analítica web para maximizar conversiones. Trabajo con herramientas reales y casos prácticos para proyectos de marketing integrados.",
     features: [
       "4 años",
       "Online",
@@ -155,9 +192,9 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Educación Infantil",
     description:
-      "Prepárate para enseñar y acompañar el desarrollo infantil.",
+      "Formación pedagógica especializada en atención, desarrollo y aprendizaje en la primera infancia, con metodologías actualizadas.",
     overview:
-      "Formación pedagógica para trabajar en educación infantil.",
+      "El grado aborda el desarrollo socioemocional, diseño curricular, evaluación educativa y estrategias inclusivas. Incluye prácticas en centros educativos, recursos didácticos y diseño de proyectos para favorecer el aprendizaje en edades tempranas.",
     features: [
       "4 años",
       "Online",
@@ -170,9 +207,9 @@ export const PROGRAMS = {
     badge: "GRADO UNIVERSITARIO",
     title: "Grado en Educación Primaria",
     description:
-      "Conviértete en docente de educación primaria.",
+      "Formación para diseñar e impartir programas educativos en educación primaria con enfoque inclusivo y competencial.",
     overview:
-      "Aprende metodologías educativas y desarrollo pedagógico.",
+      "Este grado ofrece formación en didáctica, evaluación, atención a la diversidad y gestión del aula. Trabaja metodologías activas, planificación curricular y prácticas docentes supervisadas para la inserción profesional como docente de primaria.",
     features: [
       "4 años",
       "Online",
