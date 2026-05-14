@@ -31,9 +31,8 @@ export default function Header() {
     };
 
     const onResize = () => {
-      setIsMobile(
-        window.innerWidth < 1024
-      );
+      // Use a more common mobile breakpoint (768px)
+      setIsMobile(window.innerWidth < 768);
     };
 
     onResize();
@@ -60,53 +59,6 @@ export default function Header() {
       );
     };
   }, []);
-
-  // Estado de usuario y carrito desde localStorage
-  const [user, setUser] = useState(null);
-  const [cartCount, setCartCount] = useState(0);
-
-  useEffect(() => {
-    const loadUser = () => {
-      try {
-        const u = localStorage.getItem("bigban_user");
-        setUser(u ? JSON.parse(u) : null);
-      } catch (e) {
-        console.error("Error cargando usuario desde localStorage:", e);
-        setUser(null);
-      }
-    };
-
-    function loadCart() {
-      try {
-        const c = localStorage.getItem("bigban_cart");
-        const arr = c ? JSON.parse(c) : [];
-        setCartCount(Array.isArray(arr) ? arr.length : 0);
-      } catch (e) {
-        console.error("Error cargando carrito desde localStorage:", e);
-        setCartCount(0);
-      }
-    }
-
-    loadUser();
-    loadCart();
-
-    const onStorage = (e) => {
-      if (e.key === "bigban_user") loadUser();
-      if (e.key === "bigban_cart") loadCart();
-    };
-
-    window.addEventListener("storage", onStorage);
-
-    return () => window.removeEventListener("storage", onStorage);
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("bigban_token");
-    localStorage.removeItem("bigban_user");
-    setUser(null);
-    // notify other tabs
-    window.dispatchEvent(new Event("storage"));
-  };
 
   return (
     <header
@@ -240,12 +192,13 @@ export default function Header() {
             <>
               <nav
                 style={{
-                  display:
-                    "flex",
+                  display: "flex",
                   gap: "28px",
                   flex: 1,
-                  marginLeft:
-                    "30px",
+                  marginLeft: "30px",
+                  // allow wrapping and horizontal scroll to avoid overflow on narrower screens
+                  flexWrap: "wrap",
+                  overflowX: "auto",
                 }}
               >
                 {NAV_ITEMS.map(
@@ -303,29 +256,9 @@ export default function Header() {
               </nav>
 
               <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
-                <Link to="/tienda" style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
-                  🛒 {cartCount}
+                <Link to={SITE.loginHref} style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
+                  Acceso
                 </Link>
-
-                {user ? (
-                  <>
-                    <Link to="/portal" style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
-                      Hola, {user.name}
-                    </Link>
-                    <button onClick={handleLogout} style={{ background: "transparent", border: "1px solid #e5e7eb", padding: "8px 12px", borderRadius: 8 }}>
-                      Cerrar sesión
-                    </button>
-                  </>
-                ) : (
-                  <>
-                    <Link to={SITE.loginHref} style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
-                      Acceso
-                    </Link>
-                    <Link to="/registro" style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700 }}>
-                      Registro
-                    </Link>
-                  </>
-                )}
 
                 <button
                   style={{
