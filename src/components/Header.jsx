@@ -52,7 +52,6 @@ export default function Header() {
         "scroll",
         onScroll
       );
-
       window.removeEventListener(
         "resize",
         onResize
@@ -175,15 +174,17 @@ export default function Header() {
             <span
               style={{
                 fontWeight: 800,
-                fontSize:
-                  isMobile
-                    ? "1rem"
-                    : "1.35rem",
-                color:
-                  "#111827",
+                // Slightly smaller on mobile to avoid wrapping
+                fontSize: isMobile ? "0.95rem" : "1.35rem",
+                color: "#111827",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+                maxWidth: isMobile ? "140px" : "none",
+                display: "inline-block",
               }}
             >
-              {SITE.name}
+              {isMobile ? SITE.shortName || SITE.name : SITE.name}
             </span>
           </Link>
 
@@ -196,7 +197,6 @@ export default function Header() {
                   gap: "28px",
                   flex: 1,
                   marginLeft: "30px",
-                  // allow wrapping and horizontal scroll to avoid overflow on narrower screens
                   flexWrap: "wrap",
                   overflowX: "auto",
                 }}
@@ -280,77 +280,106 @@ export default function Header() {
           {/* MOBILE BUTTON */}
           {isMobile && (
             <button
+              aria-label={mobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
               onClick={() =>
                 setMobileMenuOpen(
                   !mobileMenuOpen
                 )
               }
               style={{
-                background:
-                  "transparent",
-                border:
-                  "none",
-                fontSize:
-                  "1.8rem",
-                cursor:
-                  "pointer",
+                background: "transparent",
+                border: "none",
+                fontSize: "1.8rem",
+                cursor: "pointer",
+                lineHeight: 1,
+                padding: "6px",
               }}
             >
-              ☰
+              {mobileMenuOpen ? "✕" : "☰"}
             </button>
           )}
         </div>
 
         {/* MOBILE MENU */}
-        {isMobile &&
-          mobileMenuOpen && (
-            <div
-              style={{
-                borderTop:
-                  "1px solid #e5e7eb",
-                padding:
-                  "20px",
-                display:
-                  "flex",
-                flexDirection:
-                  "column",
-                gap: "16px",
-                background:
-                  "#ffffff",
-              }}
-            >
-              {NAV_ITEMS.map(
-                (
-                  item
-                ) => (
+        {isMobile && mobileMenuOpen && (
+          <div
+            style={{
+              position: "fixed",
+              inset: 0,
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "100vh",
+              background: "rgba(255,255,255,0.98)",
+              zIndex: 999999,
+              display: "flex",
+              flexDirection: "column",
+              paddingTop: "84px",
+              paddingLeft: "20px",
+              paddingRight: "20px",
+              overflowY: "auto",
+              gap: "18px",
+            }}
+          >
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              {NAV_ITEMS.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    textDecoration: "none",
+                    color: "#111827",
+                    fontWeight: 700,
+                    fontSize: "1.05rem",
+                    padding: "10px 0",
+                    borderBottom: "1px solid rgba(0,0,0,0.04)",
+                  }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              {/* Top links and access/CTA in mobile menu */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "6px" }}>
+                {TOP_LINKS.map((link) => (
                   <Link
-                    key={
-                      item.label
-                    }
-                    to={
-                      item.href
-                    }
-                    onClick={() =>
-                      setMobileMenuOpen(
-                        false
-                      )
-                    }
-                    style={{
-                      textDecoration:
-                        "none",
-                      color:
-                        "#111827",
-                      fontWeight: 600,
-                    }}
+                    key={link.label}
+                    to={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    style={{ textDecoration: "none", color: "#4b5563", padding: "8px 0" }}
                   >
-                    {
-                      item.label
-                    }
+                    {link.label}
                   </Link>
-                )
-              )}
+                ))}
+
+                <Link
+                  to={SITE.loginHref}
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{ textDecoration: "none", color: "#0a3d8f", fontWeight: 700, padding: "8px 0" }}
+                >
+                  Acceso
+                </Link>
+
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  style={{
+                    background: "#e8431a",
+                    color: "#fff",
+                    border: "none",
+                    padding: "12px 16px",
+                    borderRadius: "8px",
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    marginTop: "6px",
+                  }}
+                >
+                  Solicita información
+                </button>
+              </div>
             </div>
-          )}
+          </div>
+        )}
 
         {/* DESKTOP MEGA MENU */}
         {!isMobile &&

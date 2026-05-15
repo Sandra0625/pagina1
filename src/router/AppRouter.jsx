@@ -18,8 +18,6 @@ import CTABanner from "../components/CTABanner";
 import ProgramPage from "../pages/ProgramPage";
 import StorePage from "../pages/StorePage";
 import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
-import UserPortal from "../pages/UserPortal";
 
 function HomePage() {
   return (
@@ -69,9 +67,6 @@ export default function AppRouter() {
           path="/acceso-plataformas-big-ban-university"
           element={<LoginPage />}
         />
-
-        <Route path="/registro" element={<RegisterPage />} />
-        <Route path="/portal" element={<UserPortal />} />
 
         <Route
           path="/masteres"

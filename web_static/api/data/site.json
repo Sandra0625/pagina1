@@ -1,0 +1,24 @@
+{
+  "SITE": {
+    "name": "Big Ban University",
+    "shortName": "Big Ban",
+    "tagline": "La Universidad Online del Siglo XXI",
+    "phone": "951 562 138",
+    "loginHref": "/acceso-plataformas-big-ban-university"
+  },
+  "TOP_LINKS": [
+    { "label": "Noticias", "href": "/noticias" },
+    { "label": "Blog", "href": "/blog" },
+    { "label": "Eventos", "href": "/eventos" },
+    { "label": "Podcast", "href": "/podcast" }
+  ],
+  "NAV_ITEMS": [
+    { "label": "Grados", "href": "/grados" },
+    { "label": "Másteres", "href": "/masteres" },
+    { "label": "Formación Profesional", "href": "/fp-a-distancia" },
+    { "label": "Tienda", "href": "/tienda" },
+    { "label": "Oferta académica", "href": "/oferta-academica" },
+    { "label": "Precios y Becas", "href": "/precios-becas" },
+    { "label": "Big Ban University", "href": "/big-ban-university" }
+  ]
+}

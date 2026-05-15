@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SITE } from "../data/siteData";
-import { useAuth } from "../context/AuthContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +25,8 @@ export default function LoginPage() {
       }
 
       const data = await res.json();
-      login(data.user, data.token);
+      localStorage.setItem("bigban_token", data.token);
+      localStorage.setItem("bigban_user", JSON.stringify(data.user));
       alert("Acceso correcto. Bienvenido " + data.user.name);
       navigate("/");
     } catch (error) {
